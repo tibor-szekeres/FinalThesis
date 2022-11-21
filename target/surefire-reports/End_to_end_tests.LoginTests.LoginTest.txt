@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: End_to_end_tests.LoginTests.LoginTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 14.371 s <<< FAILURE! - in End_to_end_tests.LoginTests.LoginTest
+validLogin(End_to_end_tests.LoginTests.LoginTest)  Time elapsed: 7.489 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element is not clickable at point (444, 922)
+  (Session info: chrome=95.0.4638.69)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-IADBC0G', ip: '192.168.0.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\tibor\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49995}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 464dc2eb5f8a4236fa79dc80558197c5
+	at End_to_end_tests.LoginTests.LoginTest.validLogin(LoginTest.java:22)
+
+invalidLogin(End_to_end_tests.LoginTests.LoginTest)  Time elapsed: 6.751 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element is not clickable at point (444, 978)
+  (Session info: chrome=95.0.4638.69)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-IADBC0G', ip: '192.168.0.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\tibor\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52844}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f319a83831a1364fe5fca778182aac28
+	at End_to_end_tests.LoginTests.LoginTest.invalidLogin(LoginTest.java:28)
+

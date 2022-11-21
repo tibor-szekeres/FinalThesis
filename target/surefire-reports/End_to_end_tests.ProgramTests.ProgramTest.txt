@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: End_to_end_tests.ProgramTests.ProgramTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.361 s - in End_to_end_tests.ProgramTests.ProgramTest

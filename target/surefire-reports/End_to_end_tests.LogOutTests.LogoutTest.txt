@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: End_to_end_tests.LogOutTests.LogoutTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 18.659 s <<< FAILURE! - in End_to_end_tests.LogOutTests.LogoutTest
+logOut(End_to_end_tests.LogOutTests.LogoutTest)  Time elapsed: 18.658 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for url to be "https://centr.com/centr". Current url: "https://centr.com/join-us" (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-IADBC0G', ip: '192.168.0.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\tibor\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54174}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 584b1747588898025f6e2466808305ad
+	at End_to_end_tests.LogOutTests.LogoutTest.logOut(LogoutTest.java:27)
+

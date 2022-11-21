@@ -1,0 +1,23 @@
+-------------------------------------------------------------------------------
+Test set: End_to_end_tests.WorkoutTests.WorkoutTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 33.772 s <<< FAILURE! - in End_to_end_tests.WorkoutTests.WorkoutTest
+startFinishWorkout(End_to_end_tests.WorkoutTests.WorkoutTest)  Time elapsed: 20.911 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //*[text()='complete workout']' (tried for 10 second(s) with 500 milliseconds interval)
+	at End_to_end_tests.WorkoutTests.WorkoutTest.startFinishWorkout(WorkoutTest.java:29)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[text()='complete workout']"}
+  (Session info: chrome=95.0.4638.69)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-IADBC0G', ip: '192.168.0.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\tibor\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52744}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 258c2a83e21808244d289c30a3471bc2
+*** Element info: {Using=xpath, value=//*[text()='complete workout']}
+	at End_to_end_tests.WorkoutTests.WorkoutTest.startFinishWorkout(WorkoutTest.java:29)
+
+changeWorkout(End_to_end_tests.WorkoutTests.WorkoutTest)  Time elapsed: 12.859 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<MMA: [PACK A PUNCH]> but was:<MMA: [STRIKE WHILE IT'S HOT]>
+	at End_to_end_tests.WorkoutTests.WorkoutTest.changeWorkout(WorkoutTest.java:41)
+
