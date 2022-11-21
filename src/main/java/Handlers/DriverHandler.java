@@ -2,6 +2,7 @@ package Handlers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverHandler {
     static WebDriver driver;
@@ -11,7 +12,9 @@ public class DriverHandler {
     }
     public static void setUp(){
         //System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver/chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://centr.com/join-us");
     }
