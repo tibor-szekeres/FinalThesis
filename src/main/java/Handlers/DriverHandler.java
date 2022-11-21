@@ -10,7 +10,7 @@ public class DriverHandler {
         return driver;
     }
     public static void setUp(){
-        System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://centr.com/join-us");
