@@ -16,21 +16,21 @@ public class WorkoutTest {
     public void setUp(){
         DriverHandler.setUp();
     }
+    //@Test
+//    public void startFinishWorkout() throws IOException {
+//        BasePage bp = Factory.BasePage();
+//        HomePage hp = Factory.HomePage();
+//        WorkoutPage wp = Factory.WorkoutPage();
+//
+//        bp.login();
+//        hp.assertValidLogin();
+//        hp.selectTuesday();
+//        hp.openWorkout();
+//        wp.completeWorkout();
+//        wp.exitWorkout();
+//    }
     @Test
-    public void startFinishWorkout() throws IOException {
-        BasePage bp = Factory.BasePage();
-        HomePage hp = Factory.HomePage();
-        WorkoutPage wp = Factory.WorkoutPage();
-
-        bp.login();
-        hp.assertValidLogin();
-        hp.selectTuesday();
-        hp.openWorkout();
-        wp.completeWorkout();
-        wp.exitWorkout();
-    }
-    @Test
-    public void changeWorkout() throws IOException {
+    public void changeWorkout() throws IOException, InterruptedException {
         BasePage bp = Factory.BasePage();
         HomePage hp = Factory.HomePage();
         WorkoutPage wp = Factory.WorkoutPage();

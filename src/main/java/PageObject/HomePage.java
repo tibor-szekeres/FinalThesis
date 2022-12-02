@@ -15,7 +15,7 @@ import java.util.List;
 public class HomePage {
     @FindBy(how = How.CSS, using = "button[class='Modalstyles__CloseButton-sslm0d-1 wChjp']")
     private WebElement closeModalButton;
-    @FindBy(how = How.CSS, using = "button[class='ab-close-button']")
+    @FindBy(how = How.CSS, using = "button[aria-label='Close Message']")
     private WebElement closeMessageButton;
     @FindBy (how = How.CSS, using = "div[class='MuiBox-root jss48']")
     private WebElement popUpWindow;
@@ -42,6 +42,7 @@ public class HomePage {
 
     public void assertValidLogin(){
         wait.until(ExpectedConditions.visibilityOf(plannerGroup));
+        //closeMessageButton.click();
         Assert.assertTrue(plannerGroup.isDisplayed());
     }
     public void selectTuesday(){

@@ -33,7 +33,7 @@ public class BasePage {
     static String excelFilePath = Constants.Path_TestData+Constants.File_TestData;
 
     public void fullyLoadPage(){
-        new WebDriverWait(DriverHandler.getDriver(), 5).until(
+        new WebDriverWait(DriverHandler.getDriver(), 7).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
@@ -44,8 +44,8 @@ public class BasePage {
            DriverHandler.getDriver().get("https://centr.com/join-us");
            fullyLoadPage();
         }
-        wait.until(ExpectedConditions.elementToBeClickable(cookieAcceptButton));
-        cookieAcceptButton.click();
+//        wait.until(ExpectedConditions.elementToBeClickable(cookieAcceptButton));
+//        cookieAcceptButton.click();
         loginButton.click();
         wait.until(ExpectedConditions.visibilityOf(email));
         excelUtils.setExcelFile(excelFilePath,"Sheet1");
@@ -60,8 +60,8 @@ public class BasePage {
             DriverHandler.getDriver().get("https://centr.com/join-us");
             fullyLoadPage();
         }
-        wait.until(ExpectedConditions.elementToBeClickable(cookieAcceptButton));
-        cookieAcceptButton.click();
+//        wait.until(ExpectedConditions.elementToBeClickable(cookieAcceptButton));
+//        cookieAcceptButton.click();
         loginButton.click();
         wait.until(ExpectedConditions.visibilityOf(email));
         excelUtils.setExcelFile(excelFilePath,"Sheet1");

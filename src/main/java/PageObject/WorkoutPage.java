@@ -19,13 +19,11 @@ import java.util.concurrent.TimeUnit;
 public class WorkoutPage {
     @FindBy(how = How.CSS, using = "a[role=button]")
     private WebElement startWorkoutButton;
-    @FindBy (how = How.XPATH, using = "//*[text()='Complete workout']")
+    @FindBy (how = How.CSS, using = "[data-automation='button-coached-workout-complete']")
     private WebElement completeWorkoutButton;
-    @FindBy (how = How.XPATH, using = "//*[text()='Exit workout']")
-    private WebElement exitWorkoutButton;
     @FindBy (how = How.CSS, using = "span[data-automation='morevert-icon']")
     private WebElement threedotButton;
-    @FindBy (how = How.CSS, using = "button[type='button'] span[class='MuiButton-label']")
+    @FindBy (how = How.CSS, using = "[data-automation='button-done']")
     private WebElement doneWorkoutButton;
     @FindAll(@FindBy(how = How.CSS, using = "button[data-ref='more-options-button']"))
     private List<WebElement> moreOptionsButtons;
@@ -33,13 +31,13 @@ public class WorkoutPage {
     private WebElement searchBar;
     @FindBy(how = How.CSS, using = "span[class='_Re8hi8S _2gqlliD']")
     private WebElement searchResult;
-    @FindAll(@FindBy(how = How.CSS, using = "a[class='_28HkWHV']"))
+    @FindAll(@FindBy(how = How.CSS, using = "[data-automation='title']"))
     private List<WebElement> workouts;
     @FindBy(how = How.XPATH, using = "//*[text()='Confirm Swap']")
     private WebElement confirmSwapButton;
     @FindBy(how = How.XPATH, using = "//*[text()='Swap to Self-Guided workout']")
     private WebElement swapToGuidedWorkout;
-    @FindBy(how = How.CSS, using = "h6[class='MuiTypography-root Typographystyles-sjta7b-0 jxeIQS MuiTypography-h6']")
+    @FindBy(how = How.XPATH, using = "//*[text()='Cable Force: Back builder']")
     private WebElement workoutText;
 
 
@@ -51,36 +49,34 @@ public class WorkoutPage {
     public void completeWorkout(){
         wait.until(ExpectedConditions.elementToBeClickable(startWorkoutButton));
         startWorkoutButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable(threedotButton));
-        threedotButton.click();
-        /*wait.until(ExpectedConditions.elementToBeClickable(completeWorkoutButton));
-        completeWorkoutButton.click();*/
-        wait.until(ExpectedConditions.elementToBeClickable(exitWorkoutButton));
-        exitWorkoutButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(completeWorkoutButton));
+        completeWorkoutButton.click();
     }
     public void exitWorkout(){
-        /*wait.until(ExpectedConditions.elementToBeClickable(doneWorkoutButton));
-        doneWorkoutButton.click();*/
-        wait.until(ExpectedConditions.urlToBe("https://centr.com/planner/0/2"));
+        wait.until(ExpectedConditions.elementToBeClickable(doneWorkoutButton));
+        doneWorkoutButton.click();
+        wait.until(ExpectedConditions.urlContains("https://centr.com/planner"));
         Assert.assertEquals("https://centr.com/planner/0/2", DriverHandler.getDriver().getCurrentUrl());
     }
-    public void changeWorkout() throws IOException {
+    public void changeWorkout() throws IOException, InterruptedException {
         excelUtils.setExcelFile(excelFilePath,"Sheet1");
         String query = excelUtils.getCellData(5, 1);
-        wait.until(ExpectedConditions.elementToBeClickable(moreOptionsButtons.get(0)));
-        moreOptionsButtons.get(0).click();
+        wait.until(ExpectedConditions.elementToBeClickable(moreOptionsButtons.get(1)));
+        moreOptionsButtons.get(1).click();
         wait.until(ExpectedConditions.elementToBeClickable(swapToGuidedWorkout));
         swapToGuidedWorkout.click();
         wait.until(ExpectedConditions.visibilityOf(searchBar));
         searchBar.sendKeys(query + Keys.ENTER);
-        wait.until(ExpectedConditions.visibilityOf(searchResult));
-        Assert.assertEquals(query, searchResult.getText());
+        wait.until(ExpectedConditions.visibilityOf(searchBar));
+        Assert.assertEquals(query, searchBar.getAttribute("value"));
+        wait.until(ExpectedConditions.urlContains(query));
+        Thread.sleep(5000);
         wait.until(ExpectedConditions.visibilityOf(workouts.get(4)));
         String changedWorkout = workouts.get(4).getText();
         workouts.get(4).click();
         wait.until(ExpectedConditions.elementToBeClickable(confirmSwapButton));
         confirmSwapButton.click();
-        wait.until(ExpectedConditions.urlToBe("https://centr.com/planner/0/2"));
+        wait.until(ExpectedConditions.urlContains("https://centr.com/planner"));
         DriverHandler.getDriver().manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOf(workoutText));
         Assert.assertTrue(changedWorkout.equalsIgnoreCase(workoutText.getText()));

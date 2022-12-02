@@ -15,12 +15,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class ShoppingListPage {
-    @FindAll(@FindBy(how = How.CSS, using = "div[data-automation='accordion-container']"))
-    private List<WebElement> shoppingListDays;
-    @FindBy(how = How.CSS, using = "a[id='create-shoppinglist-btn']")
+    @FindAll(@FindBy(how = How.XPATH, using = "//*[text()='Add full week']"))
+    private WebElement addFullWeek;
+    @FindBy(how = How.CSS, using = "//*[text()='Create new shopping list']")
     private WebElement createShoppingListBtn;
-    @FindBy(how = How.CSS, using = "a[class='_2mbgYzQ _1eH793T _3rw_7Wj']")
-    private WebElement createNewListBtn;
+
+    @FindBy(how = How.CSS, using = "data-automation='clear-all-btn'")
+    private WebElement clearWholeListBtn;
     @FindBy(how = How.CSS, using = "button[id='clear-list-btn']")
     private WebElement clearListBtn;
     @FindBy(how = How.CSS, using = "button[class='_2mbgYzQ _3Z6a-M7 _3rw_7Wj']")
@@ -31,7 +32,7 @@ public class ShoppingListPage {
     private WebElement header;
     @FindBy(how = How.CSS, using = "h1[data-automation='header-title']")
     private WebElement headerTitle;
-    @FindBy(how = How.CSS, using = "svg[id='create-shoppinglist-icon']")
+    @FindBy(how = How.XPATH, using = "//*[text()='Create new shopping list']")
     private WebElement createNewShoppingListBtn;
 
     private final WebDriverWait wait = new WebDriverWait(DriverHandler.getDriver(), 10);
@@ -42,25 +43,15 @@ public class ShoppingListPage {
     public void createList(int day){
         wait.until(ExpectedConditions.elementToBeClickable(createNewShoppingListBtn));
         createNewShoppingListBtn.click();
-        wait.until(ExpectedConditions.visibilityOfAllElements(shoppingListDays));
-        shoppingListDays.get(day).click();
-        wait.until(ExpectedConditions.elementToBeClickable(createShoppingListBtn));
-        createShoppingListBtn.click();
-        try{
-            wait.until(ExpectedConditions.elementToBeClickable(createNewListBtn));
-            createNewListBtn.click();
-
-            wait.until(ExpectedConditions.elementToBeClickable(clearListBtn));
-            clearListBtn.click();
-        } catch (Exception e){
-            wait.until(ExpectedConditions.elementToBeClickable(clearListBtn));
-            clearListBtn.click();
-        }
+        wait.until(ExpectedConditions.visibilityOf(addFullWeek));
+        addFullWeek.click();
+        wait.until(ExpectedConditions.elementToBeClickable(createNewShoppingListBtn));
+        createNewShoppingListBtn.click();
 
     }
     public void clearList() throws IOException {
-        wait.until(ExpectedConditions.elementToBeClickable(clearButtons));
-        clearButtons.click();
+        wait.until(ExpectedConditions.elementToBeClickable(clearListBtn));
+        clearListBtn.click();
 
         excelUtils.setExcelFile(excelFilePath,"Sheet1");
         wait.until(ExpectedConditions.visibilityOf(emptyTitle));
